@@ -43,6 +43,7 @@ namespace BuyersFunctionApp.Repositories
         {
             try
             {
+
                 await _buyerCollection.InsertOneAsync(product);
             }
             catch (Exception ex)

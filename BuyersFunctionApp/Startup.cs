@@ -22,6 +22,7 @@ namespace BuyersFunctionApp
             });
 
             builder.Services.AddSingleton<IBuyerRepository, BuyerRepository>();
+            builder.Services.AddSingleton<IQueueProcessor,QueueProcessor>();
         }
     }
 }

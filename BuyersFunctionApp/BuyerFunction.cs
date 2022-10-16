@@ -17,16 +17,20 @@ namespace BuyersFunctionApp
     public class BuyerFunction
     {
         private readonly IBuyerRepository _buyer;
+        private readonly IQueueProcessor _queueProcessor;
 
-        public BuyerFunction(IBuyerRepository buyer)
+        public BuyerFunction(IBuyerRepository buyer, IQueueProcessor queueProcessor)
         {
             _buyer = buyer;
+            _queueProcessor = queueProcessor;
         }
 
 
         [FunctionName("get-all-bids")]
         public async Task<ActionResult<IEnumerable<BuyerProduct>>> GetAllBids([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req, ILogger logger)
         {
+            await _queueProcessor.ReceiveMessageAsync();
+
             return new OkObjectResult(await _buyer.GetAllBidsAsync());
         }
 
@@ -51,9 +55,14 @@ namespace BuyersFunctionApp
 
                 };
 
-                await _buyer.PlaceBidAsync(product);
 
-                return new OkObjectResult("Bid placed successfully");
+
+                return new OkObjectResult(await _queueProcessor.SendMessageAsync(product));
+
+
+                // await _buyer.PlaceBidAsync(product);
+
+                // return new OkObjectResult("Bid placed successfully");
             }
             catch (Exception ex)
             {
