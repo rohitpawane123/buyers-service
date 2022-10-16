@@ -59,10 +59,6 @@ namespace BuyersFunctionApp
 
                 return new OkObjectResult(await _queueProcessor.SendMessageAsync(product));
 
-
-                // await _buyer.PlaceBidAsync(product);
-
-                // return new OkObjectResult("Bid placed successfully");
             }
             catch (Exception ex)
             {

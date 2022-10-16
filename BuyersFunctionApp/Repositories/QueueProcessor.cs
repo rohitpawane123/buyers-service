@@ -14,7 +14,7 @@ namespace BuyersFunctionApp.Repositories
     public class QueueProcessor : IQueueProcessor
     {
         private readonly IBuyerRepository _buyerRepository;
-        private readonly string ConnectionString = "Endpoint=sb://eauctionasb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=t3El3pY4zZedTHE0qtEu/episCgwZnxHw0CmFKXiMxE=";
+        private readonly string ConnectionString = "Endpoint=sb://eauctionasb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=B2/0fZbSEawJvA7pgzz1kr/2MfVchtgK+UPipmzyEfE=";
         private readonly string QueueName = "buyers";
         static ServiceBusClient client;
         static ServiceBusSender sender;
@@ -22,15 +22,15 @@ namespace BuyersFunctionApp.Repositories
         public QueueProcessor(IBuyerRepository buyerRepository)
         {
             _buyerRepository = buyerRepository;
-            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-            client = new ServiceBusClient(ConnectionString, clientOptions);
+
         }
 
         public async Task<ActionResult> SendMessageAsync(BuyerProduct product)
         {
             try
             {
-
+                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+                client = new ServiceBusClient(ConnectionString, clientOptions);
                 sender = client.CreateSender(QueueName);
                 string json = JsonConvert.SerializeObject(product);
                 var msg = BinaryData.FromString(json);
@@ -44,7 +44,7 @@ namespace BuyersFunctionApp.Repositories
 
                 await sender.SendMessageAsync(message);
 
-                await ReceiveMessageAsync();
+                // await ReceiveMessageAsync();
 
                 return new OkObjectResult("Message successfully triggered");
             }
@@ -58,6 +58,8 @@ namespace BuyersFunctionApp.Repositories
 
         public async Task ReceiveMessageAsync()
         {
+            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+            client = new ServiceBusClient(ConnectionString, clientOptions);
             var receiver = client.CreateReceiver(QueueName, new ServiceBusReceiverOptions { ReceiveMode = ServiceBusReceiveMode.ReceiveAndDelete });
 
             var messageOfQueue = new List<ServiceBusReceivedMessage>();
