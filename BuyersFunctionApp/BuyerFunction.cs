@@ -48,12 +48,10 @@ namespace BuyersFunctionApp
                     Phone = input.Phone,
                     Pin = input.Pin,
                     State = input.State,
-
+                    ProductId = input.ProductId,
                 };
 
-                await _buyer.PlaceBidAsync(product);
-
-                return new OkObjectResult("Bid placed successfully");
+                return new OkObjectResult(await _buyer.PlaceBidAsync(product));
             }
             catch (Exception ex)
             {
@@ -94,5 +92,21 @@ namespace BuyersFunctionApp
             }
 
         }
+
+        [FunctionName("get-all-bids-by-productid")]
+        public async Task<ActionResult<IEnumerable<BuyerProduct>>> GetAllBidsByProductId([HttpTrigger(AuthorizationLevel.Function, "get", Route = "get-all-bids-by-productid/{id}")] HttpRequest request, ILogger logger, string id)
+        {
+            try
+            {
+                return new OkObjectResult(await _buyer.GetAllBidsByProductId(id));
+            }
+            catch (Exception ex)
+            {
+                return new BadRequestObjectResult(ex.Message);
+                throw;
+            }
+        }
+
+
     }
 }

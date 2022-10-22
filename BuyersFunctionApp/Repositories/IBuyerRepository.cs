@@ -13,11 +13,13 @@ namespace BuyersFunctionApp.Repositories
     {
         Task<ActionResult<IEnumerable<BuyerProduct>>> GetAllBidsAsync();
 
-        Task PlaceBidAsync(BuyerProduct product);
+        Task<ActionResult> PlaceBidAsync(BuyerProduct product);
 
         Task<ActionResult> UpdateBid(ObjectId productId, string buyerEmail, double newBidAmount);
 
         Task<ActionResult> DeleteBid(ObjectId id);
+
+        Task<ActionResult<IEnumerable<BuyerProduct>>> GetAllBidsByProductId(string productId);
 
     }
 }

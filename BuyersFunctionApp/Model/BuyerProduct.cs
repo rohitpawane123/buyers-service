@@ -11,38 +11,40 @@ namespace BuyersFunctionApp.Model
 {
     public class BuyerProduct
     {
-
         [BsonId]
-        public ObjectId ProductId { get; set; }
+        public ObjectId Id { get; set; }
 
-        [BsonElement("bidamount")]
+        [BsonElement("productId")]
+        public string ProductId { get; set; }
+
+        [BsonElement("bidAmount")]
         public double BidAmount { get; set; }
 
-        [BsonElement("firstname")]
+        [BsonElement("firstName")]
         [MinLength(5)]
         public string FirstName { get; set; }
 
-        [BsonElement("lastname")]
-        public string? LastName { get; set; }
+        [BsonElement("lastName")]
+        public string LastName { get; set; }
 
         [BsonElement("address")]
-        public string? Address { get; set; }
+        public string Address { get; set; }
 
         [BsonElement("city")]
-        public string? City { get; set; }
+        public string City { get; set; }
         [BsonElement("state")]
-        public string? State { get; set; }
+        public string State { get; set; }
         [BsonElement("pin")]
-        public string? Pin { get; set; }
+        public string Pin { get; set; }
         [BsonElement("phone")]
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
 
         [BsonElement("email")]
-        public string? Email { get; set; }
+        public string Email { get; set; }
 
         public BuyerProduct()
         {
-            ProductId = ObjectId.GenerateNewId();
+            Id = ObjectId.GenerateNewId();
         }
 
     }
