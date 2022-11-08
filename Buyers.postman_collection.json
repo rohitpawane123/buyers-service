@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "b32ae64b-293b-47bb-84d3-c15a7e73de05",
+		"name": "Buyers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Add Bid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": \"6353faa3b82187c49741b455\",\r\n    \"bidAmount\": 51.05,\r\n    \"firstName\": \"Julie\",\r\n    \"lastName\": \"Key\",\r\n    \"address\": \" 265 Ventura Drive\",\r\n    \"city\": \"Sunnyvale\",\r\n    \"state\": \"California\",\r\n    \"pin\": \"94086\",\r\n    \"phone\": \"831-316-6590\",\r\n    \"email\": \"Julie.Key@eauction-buyer.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://buyers-service.azurewebsites.net/api/place-bid?code=dcjt3oibNIkpe6H3RknYJKq96M4vOlJ7GyOZLQHm5eKjAzFuYMuzjw==",
+							"protocol": "https",
+							"host": [
+								"buyers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"place-bid"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "dcjt3oibNIkpe6H3RknYJKq96M4vOlJ7GyOZLQHm5eKjAzFuYMuzjw=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://buyers-service.azurewebsites.net/api/update-bid/6353bbc8ea511dfe429f7255/isabell.campos@eauction-buyer.com/40?code=OA65zSiNvQvJrQQm01ESGS3Bz-xGfk1j1RvvYEVynlG9AzFu2HfVfA==",
+							"protocol": "https",
+							"host": [
+								"buyers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"update-bid",
+								"6353bbc8ea511dfe429f7255",
+								"isabell.campos@eauction-buyer.com",
+								"40"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "OA65zSiNvQvJrQQm01ESGS3Bz-xGfk1j1RvvYEVynlG9AzFu2HfVfA=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://buyers-service.azurewebsites.net/api/delete-bid/63541d2db108e234999cde0b?code=j-Ej2CaUc035Woy6HdX4_jrxAuOT_eBmQkvuSjHaxPUnAzFuuhC5vw==",
+							"protocol": "https",
+							"host": [
+								"buyers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"delete-bid",
+								"63541d2db108e234999cde0b"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "j-Ej2CaUc035Woy6HdX4_jrxAuOT_eBmQkvuSjHaxPUnAzFuuhC5vw=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Bids",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://buyers-service.azurewebsites.net/api/get-all-bids?code=0oQvBlSeMfFEUxnzb9XDJPr97Gitg29SJ30Q4UEGl4FeAzFuwuQLNQ==",
+							"protocol": "https",
+							"host": [
+								"buyers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"get-all-bids"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "0oQvBlSeMfFEUxnzb9XDJPr97Gitg29SJ30Q4UEGl4FeAzFuwuQLNQ=="
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

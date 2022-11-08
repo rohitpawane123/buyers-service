@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "bac22169-4a6f-46b9-a0b4-e16c9c54f09f",
+		"name": "Sellers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productName\": \"Emulsion\",\r\n    \"shortDescription\": \"An emulsion is a mixture of two or more liquids that are normally immiscible (unmixable or unblendable) owing to liquid-liquid phase separation.\",\r\n    \"detailedDescription\": \"Emulsions contain both a dispersed and a continuous phase, with the boundary between the phases called the interface.Emulsions tend to have a cloudy appearance because the many phase interfaces scatter light as it passes through the emulsion. Emulsions appear white when all light is scattered equally.\",\r\n    \"category\": \"Paint\",\r\n    \"startingPrice\": 50,\r\n    \"bidEndDate\": \"2022-10-30\",\r\n    \"firstName\": \"Jadiel\",\r\n    \"lastName\": \"Mahoney\",\r\n    \"address\": \"2116 Horizon Circle\",\r\n    \"city\": \"Tukwila\",\r\n    \"state\": \"Washington\",\r\n    \"pin\": \" 98168\",\r\n    \"phone\": \"253-660-5989\",\r\n    \"email\": \"Jadiel.Mahoney@eauction-seller.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sellers-service.azurewebsites.net/api/add-product?code=PMtc7bJWN1VW11mZL5cV8C-3NDx-GbpaXxWWG8zsR3nIAzFuT82xEg==",
+							"protocol": "https",
+							"host": [
+								"sellers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"add-product"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "PMtc7bJWN1VW11mZL5cV8C-3NDx-GbpaXxWWG8zsR3nIAzFuT82xEg=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://sellers-service.azurewebsites.net/api/delete-product/6353e4c6e93b996822e4bd5b?code=e0jRWdmoXNwNcO7T7BdNyqm4CdigRuW25Fo5lacwKX2_AzFudz6vCQ==",
+							"protocol": "https",
+							"host": [
+								"sellers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"delete-product",
+								"6353e4c6e93b996822e4bd5b"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "e0jRWdmoXNwNcO7T7BdNyqm4CdigRuW25Fo5lacwKX2_AzFudz6vCQ=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sellers-service.azurewebsites.net/api/get-product-by-id/6353f3e4b82187c49741b421?code=8Z58MaQS-0gb44S2F6Rj_2ZC-sULLmXuUCvYW-xffwjwAzFuIzFilw==",
+							"protocol": "https",
+							"host": [
+								"sellers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"get-product-by-id",
+								"6353f3e4b82187c49741b421"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "8Z58MaQS-0gb44S2F6Rj_2ZC-sULLmXuUCvYW-xffwjwAzFuIzFilw=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sellers-service.azurewebsites.net/api/list-all-products?code=x6IdfHw_JoniA2WrsW5ajjUCkgkZat8Ndds2oKef1t8rAzFu_8r8nA==",
+							"protocol": "https",
+							"host": [
+								"sellers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"list-all-products"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "x6IdfHw_JoniA2WrsW5ajjUCkgkZat8Ndds2oKef1t8rAzFu_8r8nA=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://sellers-service.azurewebsites.net/api/update-product/6353f3e4b82187c49741b421/Jadyn.Klein@eauction-seller.com/Primer/Primer reduces the number of paint coats needed for good coverage and even color./A thin layer of paint may still be permeable to water. Water can permeate into the wood and cause warping, mildew, or dry rot. Primer improves the waterproofing of the finish./30/2022-10-30?code=hH-i81Ny7X_q9059C85zkSuhyRs68sisoxr8yUOU3b5KAzFuIY8LUw==",
+							"protocol": "https",
+							"host": [
+								"sellers-service",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"update-product",
+								"6353f3e4b82187c49741b421",
+								"Jadyn.Klein@eauction-seller.com",
+								"Primer",
+								"Primer reduces the number of paint coats needed for good coverage and even color.",
+								"A thin layer of paint may still be permeable to water. Water can permeate into the wood and cause warping, mildew, or dry rot. Primer improves the waterproofing of the finish.",
+								"30",
+								"2022-10-30"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "hH-i81Ny7X_q9059C85zkSuhyRs68sisoxr8yUOU3b5KAzFuIY8LUw=="
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
